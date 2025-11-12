@@ -1,0 +1,129 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha no topo */
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+h1 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #6c757d;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* --- Estilo da Tabela --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+thead {
+    background-color: #007bff;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tfoot td {
+    background-color: #e9ecef;
+    font-weight: bold;
+    color: #333;
+    border-top: 2px solid #007bff;
+}
+
+/* --- Estilo e Lógica da Interatividade (Abas) --- */
+.tabs-container {
+    margin-top: 30px;
+}
+
+/* Esconde os inputs de rádio, eles controlam o estado */
+.tabs-container input[type="radio"] {
+    display: none;
+}
+
+.tab-label {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: #e9ecef;
+    color: #495057;
+    border-radius: 8px 8px 0 0;
+    transition: background-color 0.3s;
+    font-weight: 600;
+}
+
+.tab-label:hover {
+    background-color: #dee2e6;
+}
+
+/* Estilo para a aba ativa */
+.tabs-container input[type="radio"]:checked + .tab-label {
+    background-color: #007bff;
+    color: white;
+    border-bottom: 3px solid #0056b3;
+}
+
+.tab-content {
+    border: 1px solid #dee2e6;
+    border-top: none;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 0 8px 8px 8px;
+    /* Esconde todo o conteúdo por padrão */
+    display: none; 
+}
+
+/* Mostra o conteúdo da aba selecionada usando o seletor ":checked" */
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2 {
+    display: block;
+}
+
+.tab-content h2 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.5em;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.footer-note {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #adb5bd;
+}
