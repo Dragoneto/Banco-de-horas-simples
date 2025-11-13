@@ -1,0 +1,214 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+h1 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #6c757d;
+    margin-bottom: 30px;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* --- Estilo da Tabela Geral e Células --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    table-layout: fixed; /* Ajuda a manter as colunas uniformes */
+}
+
+th, td {
+    padding: 0; /* Remove padding do TD para o label preencher */
+    height: 30px; /* Altura fixa para as células de tempo */
+    text-align: center;
+    border: 1px solid #0d77e0; /* Borda mais fina e visível */
+}
+
+thead {
+    background-color: #007bff;
+    color: rgb(199, 65, 65);
+}
+
+/* Primeira coluna (Horário) e Header */
+td:first-child, th {
+    background-color: #f8f9fa !important;
+    padding: 8px 10px;
+    font-weight: 600;
+    font-size: 0.9em;
+    height: auto;
+}
+th:first-child {
+    background-color: #007bff !important;
+    color: white;
+}
+
+
+/* --- Estilo e Lógica da Interatividade (Slots) --- */
+
+.slot-container {
+    background-color: #ffffff; /* Fundo padrão branco */
+    padding: 0;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Esconde o Checkbox */
+.time-slot {
+    display: none;
+}
+
+/* Estilo do Label (que cobre a célula e é o bloco clicável) */
+.slot-container label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #f1f1f1; /* Cor de fundo padrão (não selecionado) */
+    transition: background-color 0.2s, border 0.2s;
+}
+
+.slot-container label:hover {
+    background-color: #e0e0e0; /* Efeito de hover */
+}
+
+/* ESTADO SELECIONADO (O que o usuário vê ao clicar) */
+.time-slot:checked + label {
+    background-color: #28a745; /* Verde de Disponível */
+    border: 1px solid #155724;
+    position: relative;
+}
+
+.time-slot:checked + label:after {
+    content: "✔";
+    color: white;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Intervalos e Indisponibilidade (Não interativos) */
+.lunch-break {
+    background-color: #ffc107 !important; /* Amarelo Laranja */
+    color: #856404;
+    font-size: 0.9em;
+    font-style: italic;
+    font-weight: 600;
+    padding: 8px 10px;
+    cursor: default;
+}
+
+
+/* --- Abas (Mantenha o estilo anterior) --- */
+.tabs-container input[type="radio"] {
+    display: none;
+}
+
+.tab-label {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: #e9ecef;
+    color: #495057;
+    border-radius: 8px 8px 0 0;
+    transition: background-color 0.3s;
+    font-weight: 600;
+}
+
+.tabs-container input[type="radio"]:checked + .tab-label {
+    background-color: #007bff;
+    color: white;
+    border-bottom: 3px solid #0056b3;
+}
+
+.tab-content {
+    border: 1px solid #dee2e6;
+    border-top: none;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 0 8px 8px 8px;
+    display: none; 
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2 {
+    display: block;
+}
+
+.tab-content h2 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.5em;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- Legenda --- */
+.legend {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #dee2e6;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.selected-dot, .default-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-left: 15px;
+}
+
+.selected-dot {
+    background-color: #28a745; 
+}
+
+.default-dot {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+}
+
+.footer-note {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #adb5bd;
+}
+.tab-label:focus,
+.slot-container label:focus {
+    outline: 2px solid #ffc107; 
+    outline-offset: 2px;
+}
